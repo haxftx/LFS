@@ -1,0 +1,46 @@
+Linux Filesystem - un sistem de fisier linux
+
+    Am implementat sistemul virtual de fisiere cu liste simple inlatuite, iar
+fiecare nod din arbore isi stie precedentul sau. La inceput citesc primul
+cuvand de pe linie si verific ce funtie se efectueaza si daca nu gasesc acesta
+funtie, citesc toate caracterele de pe acesta linie.
+    Functii utilizate:
+    1. comp_nod - compara imformatia unui nod cu un caracter.
+    2. nr_slash - calculeaza cate caractere de '/' sunt intr-un string infara
+                  de cel de pe pozitia 0.
+    3. print_name - imi afiseaza numele unui fisier sau director.
+    4. add_list_sort - adauga o celula sortata lexicografic in lista copiilor
+                       unui nod din arbore.
+    5. find_nod - cauta intr-o lista daca exista arborele si il returneaza.
+    6. find_way - cauta intr-un director daca exista o cale a altui director.
+
+    Functii de comenzi:
+    1. pwd - parcurge recursiv inapoi arborele pana ajunge in varf si afiseaza
+             fiecare caracter din nod.
+    2. ls - parcurge in adancime pana intalneste un director sau un fisier si
+            apoi afiseaza numele acestuia.
+       function_ls - citecte datele de la tastatura si conform informatiei
+                     efectueaza functia ls.
+    3. mkdir & touch - intai verific daca am cale care ma duce in alt director
+                        si caut acesta cale, daca nu o gasesc afisez eroarea
+                        respectiva. Apoi pentru fiecare caracter din numele
+                        noului director sau fisier il caut in sistem si daca nu
+                        exista il adaug. La sfarsit imi creez '/' - pentru a
+                        sti ca este director sau setez nodului ca este fisier.
+                        Primeste 2 parametri si aferent calei care o primsc
+                        absoluta sau relativa caut in sistemul de fisiere.
+      function_mkdir_touch - imi citeste numele fisierelor sau directoarele,
+                             care trebuie de creat.
+    4. cd - schimba directorul curent in calea data, daca am ".."(directorul
+            curent), caunt in arborii anteriori, altfel caut in sistemul de
+            fisiere daca exista directorul, respectiv daca e cale absoluta 
+            in root sau relativa in directorul curent.
+    5. mv - muta un fisier intr-un director, daca exista fisierul si al 2-lea
+            este director. Dupa verificare erorii adaug in director fisierul
+            care trebuia mutat si sterg validarea caii fisierului.
+    6. cp - copiaza un fisier intr-un director, daca gaseste fisierul si
+            directorul respectiv adaug in fisierul in director.
+    7. rm - sterge un numar de fisiere date ca parametru, daca acestea sunt
+            gasite in sistemul de fisiere.
+    8. rmdir - sterge un numar de directoare gooale daca acestea sunt gasite,
+               respectiv nu contin informatie.
